@@ -163,7 +163,7 @@ class UpdatesCheckReceiver : BroadcastReceiver() {
 
             val updateCheckIntent = getRepeatingUpdatesCheckIntent(context)
             val alarmMgr = context.getSystemService(AlarmManager::class.java)!!
-            val checkAutoUpdateTime = AlarmManager.INTERVAL_DAY * 14 // 2 weeks
+            val checkAutoUpdateTime = AlarmManager.INTERVAL_DAY * 3 // 3 days
             alarmMgr.setRepeating(
                 AlarmManager.RTC,
                 System.currentTimeMillis() + checkAutoUpdateTime,
