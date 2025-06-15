@@ -44,8 +44,7 @@ android_app {
 
     required: [
         "privapp_whitelist_net.pixelos.ota",
-        "default-permissions_net.pixelos.ota",
-        "init.pixelos-updater.rc"
+        "default-permissions_net.pixelos.ota"
     ],
 }
 
@@ -63,11 +62,4 @@ prebuilt_etc {
     sub_dir: "default-permissions",
     src: "default-permissions_net.pixelos.ota.xml",
     filename_from_src: true,
-}
-
-prebuilt_etc {
-    name: "init.pixelos-updater.rc",
-    system_ext_specific: true,
-    sub_dir: "init",
-    src: "init.pixelos-updater.rc",
 }
