@@ -169,7 +169,13 @@ class UpdatesActivity : AppCompatActivity(), UpdateImporter.Callbacks {
                 mUpdaterService?.let { updaterService ->
                     mUpdaterController = updaterService.updaterController
                 }
-                updatesList
+                if (mUpdaterController?.hasActiveDownloads() == true ||
+                    mUpdaterController?.isVerifyingUpdate == true ||
+                    mUpdaterController?.isInstallingUpdate == true) {
+                    updatesList
+                } else {
+                    downloadUpdatesList(true)
+                }
             }
 
             override fun onServiceDisconnected(componentName: ComponentName) {
