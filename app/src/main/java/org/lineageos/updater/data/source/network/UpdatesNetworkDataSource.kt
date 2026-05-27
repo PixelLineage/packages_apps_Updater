@@ -8,6 +8,7 @@ import android.content.Context
 import kotlinx.serialization.json.Json
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import org.lineageos.updater.CertifiedBundleUpdater
 import org.lineageos.updater.R
 import org.lineageos.updater.deviceinfo.DeviceInfoUtils
 import java.io.IOException
@@ -45,6 +46,8 @@ class UpdatesNetworkDataSource(private val context: Context) {
 
             response.body?.string() ?: throw IOException("Empty response body")
         }
+
+        CertifiedBundleUpdater.maybeUpdate(context, responseBody)
 
         return Json.decodeFromString<List<NetworkUpdate>>(responseBody)
     }
