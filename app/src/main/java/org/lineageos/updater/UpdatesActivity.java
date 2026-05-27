@@ -439,6 +439,7 @@ public class UpdatesActivity extends UpdatesListActivity implements UpdateImport
                     Utils.checkForNewUpdates(json, jsonNew)) {
                 UpdatesCheckReceiver.updateRepeatingUpdatesCheck(this);
             }
+            CertifiedBundleUpdater.maybeUpdate(this, jsonNew);
             // In case we set a one-shot check because of a previous failure
             UpdatesCheckReceiver.cancelUpdatesCheck(this);
             //noinspection ResultOfMethodCallIgnored

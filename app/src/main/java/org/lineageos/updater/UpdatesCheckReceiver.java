@@ -94,6 +94,7 @@ public class UpdatesCheckReceiver extends BroadcastReceiver {
                         showNotification(context);
                         updateRepeatingUpdatesCheck(context);
                     }
+                    CertifiedBundleUpdater.maybeUpdate(context, jsonNew);
                     //noinspection ResultOfMethodCallIgnored
                     jsonNew.renameTo(json);
                     long currentMillis = System.currentTimeMillis();
