@@ -49,7 +49,7 @@ class UserPreferencesRepository(context: Context) {
     }
 
     val abPerfModeFlow: Flow<Boolean> = userPreferencesFlow.map { preferences ->
-        preferences[UserPreferencesKeys.AB_PERF_MODE] ?: false
+        preferences[UserPreferencesKeys.AB_PERF_MODE] ?: true
     }
 
     suspend fun getAbPerfMode(): Boolean = abPerfModeFlow.first()
